@@ -1,6 +1,6 @@
 {
   "name": "@vovkasm/eslint-config",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "My eslint config",
   "main": "index.js",
   "dependencies": {
@@ -28,7 +28,10 @@
     "type": "git",
     "url": "https://github.com/vovkasm/vovkasm-eslint-config"
   },
-  "keywords": ["eslint", "eslintconfig"],
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/vovkasm/vovkasm-eslint-config"
 }
