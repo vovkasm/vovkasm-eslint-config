@@ -1,3 +1,5 @@
+var allExtensions = ['.ts', '.tsx', '.d.ts', '.js', '.jsx']
+
 module.exports = {
     env: {
       es6: true,
@@ -5,6 +7,7 @@ module.exports = {
   
     parserOptions: {
       sourceType: 'module',
+      ecmaVersion: 2018,
     },
   
     extends: [
@@ -13,6 +16,7 @@ module.exports = {
     ],
   
     plugins: [
+      'import',
       'react',
       'react-hooks',
       'react-native',
@@ -23,6 +27,17 @@ module.exports = {
       react: {
         version: 'detect',
       },
+      'import/extensions': allExtensions,
+      'import/external-module-folders': ['node_modules', 'node_modules/@types'],
+      'import/parsers': {
+        '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
+      },
+      'import/resolver': {
+        'node': {
+          'extensions': allExtensions,
+        },
+      },
+      'import/ignore': ['node_modules'],
     },
   
     overrides: [
@@ -289,5 +304,25 @@ module.exports = {
       'jest/no-focused-tests': 1,
       'jest/no-identical-title': 1,
       'jest/valid-expect': 1,
+
+      // eslint-plugin-import
+      // analysis/correctness
+      'import/no-unresolved': 'error',
+      'import/named': 'error',
+      'import/namespace': 'error',
+      'import/default': 'error',
+      'import/export': 'error',
+      
+      // red flags (thus, warnings)
+      'import/no-named-as-default': 'warn',
+      'import/no-named-as-default-member': 'warn',
+      'import/no-duplicates': 'warn',
+      'import/order': [
+        'warn',
+        {
+          alphabetize: {order: 'asc'},
+          'newlines-between': 'always',
+        }
+      ],
     },
   };
